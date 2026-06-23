@@ -36,10 +36,11 @@
 - Number is always 4 digits, zero-padded
 
 ## On new task
-When I give a problem description at the start of a conversation:
-1. Identify the pattern category and the appropriate directory (e.g. `02_two_pointers/`)
-2. If the directory doesn't exist, create it following the `NN_pattern_name/` naming convention
-3. Create the solution file with the correct name and this header template:
+When I give a LeetCode problem — either as a URL (e.g. `https://leetcode.com/problems/two-sum/`) or as a plain description:
+1. If a URL is given, use WebFetch to read the problem page and extract: problem number, title, description, constraints, and function signature
+2. Identify the pattern category and the appropriate directory (e.g. `02_two_pointers/`)
+3. If the directory doesn't exist, create it following the `NN_pattern_name/` naming convention
+4. Create the solution file with the correct name and this header template:
 ```python
 # Problem: {number}. {Title}
 # Pattern: {Pattern}
@@ -50,7 +51,7 @@ When I give a problem description at the start of a conversation:
 def functionName(...):
     pass
 ```
-4. Tell me which directory and file were created, then ask the first hint-progression question
+5. Tell me which directory and file were created, then ask the first hint-progression question
 
 ## Git commits
 - After I solve a problem and the solution is complete, commit with the format: `[{zero_padded_number}] {Task name}`
